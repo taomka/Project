@@ -7,11 +7,14 @@ namespace Project
 {
     public class Genre
     {
-        public GenreType Type { get; set; }
+        public GenreType Type {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Genre(GenreType type)
         {
-            Type = type;
+            throw new NotImplementedException();
         }
     }
 }

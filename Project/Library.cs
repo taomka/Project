@@ -8,13 +8,18 @@ namespace Project
 {
     public class Library
     {
-        public List<Book> Books { get; set; }
-        public List<Reader> Readers { get; set; }
+        public List<Book> Books { 
+            get { throw new NotImplementedException(); } 
+            set { throw new NotImplementedException(); }
+        }
+        public List<Reader> Readers {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Library()
         {
-            Books = new List<Book>();
-            Readers = new List<Reader>();
+            throw new NotImplementedException();
         }
 
         public void AddBook(Book book)

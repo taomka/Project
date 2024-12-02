@@ -7,15 +7,22 @@ namespace Project
 {
     public class Reader
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public Dictionary<Book, DateTime> BorrowedBooks { get; set; }
+        public string Id {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public string Name {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public Dictionary<Book, DateTime> BorrowedBooks {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Reader(string id, string name)
         {
-            Id = id;
-            Name = name;
-            BorrowedBooks = new Dictionary<Book, DateTime>();
+            throw new NotImplementedException();
         }
 
         public void BorrowBook(Book book, int period)

@@ -7,17 +7,26 @@ namespace Project
 {
     public class Book
     {
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public Author Author { get; set; }
-        public Genre Genre { get; set; }
+        public string Id {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public string Title {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public Author Author {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public Genre Genre {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Book(string id, string title, Author author, Genre genre)
         {
-            Id = id;
-            Title = title;
-            Author = author;
-            Genre = genre;
+            throw new NotImplementedException();
         }
     }
 }

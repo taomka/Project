@@ -7,13 +7,18 @@ namespace Project
 {
     public class Author
     {
-        public string Name { get; set; }
-        public string Biography { get; set; }
+        public string Name {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
+        public string Biography {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
 
         public Author(string name, string biography)
         {
-            Name = name;
-            Biography = biography;
+            throw new NotImplementedException();
         }
     }
 }
