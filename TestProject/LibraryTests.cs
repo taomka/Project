@@ -20,21 +20,6 @@ namespace TestProject
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NotImplementedException))]
-        public void LendBook_ShouldThrowException_WhenNotImplemented()
-        {
-            // Arrange
-            var library = new Library();
-            var book = new Book("1", "Test Book", new Author("Author Name", "Biography"), new Genre(GenreType.Fiction));
-            var reader = new Reader("1", "Reader Name");
-
-            // Act
-            library.LendBook(book, reader, 7);
-
-            // Assert is handled by ExpectedException
-        }
-
-        [TestMethod]
         public void AddBook_ShouldIncreaseLibraryBookCount()
         {
             // Arrange
