@@ -1,9 +1,4 @@
 ﻿using Project;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestProject
 {
@@ -11,14 +6,16 @@ namespace TestProject
     public class AuthorTests
     {
         [TestMethod]
-        public void Author_ShouldInitializeCorrectly()
+        public void Constructor_InitializeNameCorrectly()
         {
             // Arrange
-            var author = new Author("Rowling", "British author, best known for Harry Potter series.");
+            var name = "Test Author";
 
-            // Act & Assert
-            Assert.AreEqual("Rowling", author.Name);
-            Assert.AreEqual("British author, best known for Harry Potter series.", author.Biography);
+            // Act
+            var author = new Author(name);
+
+            // Assert
+            Assert.AreEqual(name, author.Name);
         }
     }
 }

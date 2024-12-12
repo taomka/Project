@@ -1,58 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Project
 {
-    public class Book
+    public class BorrowedBookEntry
     {
-        public string Id
-        {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-        public string Title
+        /// <summary>
+        /// Позичена книга.
+        /// </summary>
+        public Book Book
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
 
         /// <summary>
-        /// Список авторів книги.
+        /// Читач, який позичив книгу.
         /// </summary>
-        public List<Author> Authors
+        public Reader Reader
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
 
         /// <summary>
-        /// Жанр книги.
+        /// Дата, коли книгу було позичено.
         /// </summary>
-        public GenreType Genre {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
-        }
-
-        /// <summary>
-        /// Загальна кількість копій книги в бібліотеці.
-        /// </summary>
-        public int TotalCopies
+        public DateTime BorrowDate
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
 
         /// <summary>
-        /// Кількість доступних копій книги для позики.
+        /// Дата, до якої книгу потрібно повернути.
         /// </summary>
-        public int AvailableCopies
+        public DateTime DueDate
         {
             get { throw new NotImplementedException(); }
             set { throw new NotImplementedException(); }
         }
 
-        public Book(string id, string title, List<Author> authors, GenreType genre, int totalCopies)
+        public BorrowedBookEntry(Book book, Reader reader, DateTime borrowDate, DateTime dueDate)
         {
             throw new NotImplementedException();
         }

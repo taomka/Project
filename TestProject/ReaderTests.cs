@@ -6,60 +6,52 @@ namespace TestProject
     public class ReaderTests
     {
         [TestMethod]
-        public void ReturnBook_ShouldRemoveBookFromBorrowedBooks()
+        public void Constructor_InitializePropertiesCorrectly()
         {
             // Arrange
-            var reader = new Reader("1", "Test Reader");
-            var book = new Book("1", "Test Book", new Author("Author Name", "Biography"), new Genre(GenreType.Fiction));
-            reader.BorrowedBooks.Add(book, DateTime.Now);
+            var id = "1";
+            var name = "John Doe";
 
             // Act
-            reader.ReturnBook(book);
+            var reader = new Reader(id, name);
 
             // Assert
-            Assert.IsFalse(reader.BorrowedBooks.ContainsKey(book));
+            Assert.AreEqual(id, reader.Id);
+            Assert.AreEqual(name, reader.Name);
+            Assert.AreEqual(0, reader.BorrowedBooks.Count);
         }
 
         [TestMethod]
-        public void BorrowBook_ShouldAddBookToBorrowedBooksWithCorrectReturnDate()
+        public void BorrowBook_AddBookToBorrowedBooksList()
         {
             // Arrange
-            var reader = new Reader("1", "Test Reader");
-            var book = new Book("1", "Test Book", new Author("Author Name", "Biography"), new Genre(GenreType.Fiction));
+            var reader = new Reader("1", "John Doe");
+            var book = new Book("1", "Test Book", new List<Author> { new Author("Test Author") }, GenreType.Fiction, 10);
+            int period = 14;
 
             // Act
-            reader.BorrowBook(book, 7);
+            reader.BorrowBook(book, period);
 
             // Assert
-            Assert.IsTrue(reader.BorrowedBooks.ContainsKey(book));
-            Assert.AreEqual(DateTime.Now.AddDays(7).Date, reader.BorrowedBooks[book].Date);
+            Assert.AreEqual(1, reader.BorrowedBooks.Count);
+            Assert.AreEqual(book, reader.BorrowedBooks[0].Book);
+            Assert.AreEqual(DateTime.Now.Date, reader.BorrowedBooks[0].BorrowDate.Date);
+            Assert.AreEqual(DateTime.Now.AddDays(period).Date, reader.BorrowedBooks[0].DueDate.Date);
         }
 
         [TestMethod]
-        public void BorrowBook_ShouldSetCorrectReturnDateForPeriod()
+        public void ReturnBook_RemoveBookFromBorrowedBooksList()
         {
             // Arrange
-            var reader = new Reader("1", "Test Reader");
-            var book = new Book("1", "Test Book", new Author("Author Name", "Biography"), new Genre(GenreType.Fiction));
-
-            // Act
+            var reader = new Reader("1", "John Doe");
+            var book = new Book("1", "Test Book", new List<Author> { new Author("Test Author") }, GenreType.Fiction, 10);
             reader.BorrowBook(book, 14);
 
-            // Assert
-            Assert.AreEqual(DateTime.Now.AddDays(14).Date, reader.BorrowedBooks[book].Date);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ReturnBook_ShouldThrowException_WhenBookNotBorrowed()
-        {
-            // Arrange
-            var reader = new Reader("1", "Test Reader");
-            var book = new Book("1", "Test Book", new Author("Author Name", "Biography"), new Genre(GenreType.Fiction));
-
             // Act
             reader.ReturnBook(book);
-        }
 
+            // Assert
+            Assert.AreEqual(0, reader.BorrowedBooks.Count);
+        }
     }
 }
