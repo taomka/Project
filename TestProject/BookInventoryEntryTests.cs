@@ -6,10 +6,10 @@ namespace TestProject
     public class BookInventoryEntryTests
     {
         [TestMethod]
-        public void Constructor_InitializePropertiesCorrectly()
+        public void Constructor_InitializeProperties()
         {
             // Arrange
-            var book = new Book("1", "Test Book", new List<Author> { new Author("Test Author") }, GenreType.Fiction, 10);
+            var book = new Book("Test Book", new List<Author> { new Author("Test Author") }, GenreType.Fiction, 10);
             int quantity = 5;
 
             // Act
@@ -22,7 +22,7 @@ namespace TestProject
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void Constructor_ThrowException_WhenBookIsNull()
+        public void Constructor_WhenBookIsNull()
         {
             // Arrange & Act
             var entry = new BookInventoryEntry(null, 5);
@@ -30,10 +30,10 @@ namespace TestProject
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Constructor_ThrowException_WhenQuantityIsNegative()
+        public void Constructor_WhenQuantityIsNegative()
         {
             // Arrange & Act
-            var book = new Book("1", "Test Book", new List<Author> { new Author("Test Author") }, GenreType.Fiction, 10);
+            var book = new Book("Test Book", new List<Author> { new Author("Test Author") }, GenreType.Fiction, 10);
             var entry = new BookInventoryEntry(book, -1);
         }
     }
