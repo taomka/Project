@@ -23,6 +23,7 @@
 - **BorrowedBookEntry**: веде запис про позичену книгу
 - **BookInventoryEntry**: веде запис про книги в інвентарі
 - **GenreType**: *enum*, що представляє жанри книги, такі як **Fiction**, **NonFiction**, **Mystery**, **Fantasy**, **ScienceFiction**, **Biography**, **History**, **Romance**, **Thriller**, **Children**.
+- **Person**: *abstract class*, надає спільну структуру для роботи з особами (читачами та авторами)
 
 ---
 
@@ -31,6 +32,7 @@
 - **Агрегація**: клас `Book` посилається на `<<Enumeration>>GenreType`
 - **Композиція**: клас `Book` посилається на `Author` і `Reader`.
 - **Реалізація**: бібліотека реалізує функціонал управління книгами.
+- **Наслідування**: класи `Author` і `Reader` беруть базові властивості з абстрактного класу `Person`
 
 ---
 
@@ -39,8 +41,12 @@
 
 ![image](https://github.com/user-attachments/assets/a48b3ce3-189a-4ddc-9490-9dafff8a2a92)
 
-Також зроблено детальне проєктування елементів моделі предметної області. Наведено нижче:
+Детальне проєктування елементів моделі предметної області. Наведено нижче:
 
 ![image](https://github.com/user-attachments/assets/94deb1bf-b27a-4944-979b-9a645837dcfd)
+
+Модифікована діаграма класів після реалізації методів та властивостей приведена нижче:
+
+![Снимок экрана 2024-12-19 145145](https://github.com/user-attachments/assets/f4a334f8-3ad7-472f-8cf5-77c552633c20)
 
 ```markdown
